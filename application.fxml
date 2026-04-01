@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <Label text="Farm Management Dashboard" />
+         </children>
+      </HBox>
+   </top>
+
+   <center>
+      <BorderPane prefHeight="600.0" prefWidth="800.0">
+         <!-- Central Visualization Area -->
+         <center>
+            <AnchorPane fx:id="visualizationArea" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #cccccc; -fx-border-radius: 5; -fx-border-width: 2;">
+               <Label layoutX="250.0" layoutY="190.0" text="Visualization Area" />
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </center>
+
+   <left>
+      <VBox spacing="10.0">
+         <children>
+            <Label style="-fx-font-size: 14; -fx-font-weight: bold;" text="Farm Items" />
+            <TreeView fx:id="farmItemsTreeView" onContextMenuRequested="#selectTreeViewItem" onMouseClicked="#selectTreeViewItem" prefHeight="250.0" />
+            <Label style="-fx-font-size: 14; -fx-font-weight: bold;" text="Commands" />
+            <ListView fx:id="farmItemCommands" onMouseClicked="#onListViewItemClick" prefHeight="250.0" />
+         </children>
+      </VBox>
+   </left>
+
+   <right>
+      <VBox alignment="TOP_CENTER" spacing="15.0">
+         <children>
+         	<Label style="-fx-font-size: 14; -fx-font-weight: bold;" text="Drone Action Commands" />
+            <Button mnemonicParsing="false" onAction="#onGoHomeBtnClick" text="Go Home" />
+            <Button fx:id="scanFarm" mnemonicParsing="false" onAction="#onScanFarmBtnClick" text="Scan Farm" />
+            <Button mnemonicParsing="false" onAction="#onGoToItemBtnClick" text="GoTo Item/Container" />
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
